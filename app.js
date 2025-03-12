@@ -1,19 +1,18 @@
-// https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png
+const btn = document.querySelector('button');
+const h1 = document.querySelector('h1');
 
-const container = document.querySelector('#container');
-const baseURL = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/'
-
-
-for (let i = 1; i <= 151; i++) {
-    const pokemon = document.createElement('div');
-    pokemon.classList.add('pokemon');
-    const label = document.createElement('span');
-    label.innerText = `#${i}`;
-    const newImg = document.createElement('img');
-    newImg.src = `${baseURL}${i}.png`
-
-
-    pokemon.appendChild(newImg);
-    pokemon.appendChild(label);
-    container.appendChild(pokemon)
+const makeRandonColor = () => {
+    const r = Math.floor(Math.random() * 255);
+    const g = Math.floor(Math.random() * 255);
+    const b = Math.floor(Math.random() * 255);
+    return `rbg(${r}, ${g}, ${b})`;
 }
+
+btn.addEventListener('click', function() {
+    const newColor = makeRandonColor();
+    document.body.style.backgroundColor = newColor;
+    h1.innerText = newColor;
+})
+
+
+
